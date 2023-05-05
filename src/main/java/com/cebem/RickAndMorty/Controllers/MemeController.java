@@ -26,6 +26,7 @@ public class MemeController {
         return "memelist";
     }
 
+    // se pueden llamar igual porque los metodos de acceso son diferentes
     @PostMapping("/memes")
     public String memesAdd(@RequestParam Map<String, String> body) {
         String description = body.get("description");
@@ -47,4 +48,5 @@ public class MemeController {
     public String addMemeForm() {
         return "memeaddform";
     }
+
 }

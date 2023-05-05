@@ -42,8 +42,18 @@
             <div th:each="meme: ${misMemes}">
                 <img th:src="${meme.url}" alt="meme"/>
                 <p th:text="${meme.description}"></p>
+                <p th:text="${meme.author}"></p>
+                <button onclick="deleteMeme()">❌</button>
             </div>
     </section>
     
+    <script>
+        function deleteMeme() {
+            fetch("/memes/"),  {
+                method: "DELETE"
+            }
+        }
+    </script>
+
 </body>
 </html>
