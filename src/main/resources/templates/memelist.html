@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<!--     <meta http-equiv="refresh" content="10">
+ -->    <title>Document</title>
     <style>
         img {
             width: 100px;
@@ -43,15 +44,16 @@
                 <img th:src="${meme.url}" alt="meme"/>
                 <p th:text="${meme.description}"></p>
                 <p th:text="${meme.author}"></p>
-                <button onclick="deleteMeme()">❌</button>
+                <button th:onclick="deleteMeme( [[${meme.id}]] )">❌</button>
             </div>
     </section>
     
     <script>
-        function deleteMeme() {
-            fetch("/memes/"),  {
-                method: "DELETE"
-            }
+        async function deleteMeme(id) {
+            await fetch('/memes/' + id, {method: 'DELETE'})
+
+            console.log('Meme borrado')
+            window.location.replace('/memes')
         }
     </script>
 

@@ -13,7 +13,7 @@ public class MemeRestController {
     @Autowired
     MemeService memeService;
     
-    // http://localhost:8080/id
+    // http://localhost:8080/memes/id
     @DeleteMapping("/memes/{id}")
     public String memesDelete(@PathVariable String id) {
         boolean result = memeService.deleteMeme(Long.parseLong(id));
