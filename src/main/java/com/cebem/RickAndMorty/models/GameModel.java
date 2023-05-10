@@ -12,21 +12,21 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
-@Table(name = "Games")
+@Table(name = "Game")
 public class GameModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     public long id;
 
-    public String category;
     public String url;
+    public String companyName;
+    public String category;
     public String description;
-
-    @Temporal(TemporalType.TIMESTAMP)
-    public Date launchDate;
+    public String auhtor;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-
+    public Date createdAt;
+    
 }

@@ -11,25 +11,13 @@
             flex-direction: column;
             justify-content: center;
         }
-        nav {
-            display: flex;
-            flex-direction: row;
-            gap: 20px;
-        }
-        nav a {
-            text-decoration: none;
-            color: black;
-        }
-        nav a:hover {
-            color: aquamarine;
-        }
     </style>
 </head>
 <body>
-    <nav>
-        <a href="/memes">Listado de memes</a>
-        <a href="/memes/addForm">Añadir nuevo meme</a>
-    </nav>
+
+    <header th:insert="~{navMeme}"></header>
+    <!-- <div th:replace="navMeme"></div> -->
+
     <h1>Creación de un nuevo meme</h1>
     <form class="form" action="/memes" method="post">
         <label for="description">Descripcion</label>
