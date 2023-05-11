@@ -18,7 +18,7 @@ public class GameService {
         return (ArrayList<GameModel>) (gameRepository.findAll());
     }
 
-    public GameModel createMeme(GameModel game) {
+    public GameModel createGame(GameModel game) {
         return gameRepository.save(game);
     }
 

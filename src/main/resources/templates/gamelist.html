@@ -18,6 +18,19 @@
         nav a:hover {
             color: aquamarine;
         }
+
+        img {
+            width: 100px;
+        }
+        li{
+            list-style: none;
+        }
+        .container {
+            display:flex ;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
     </style>
 </head>
 <body>
@@ -26,6 +39,25 @@
         <a href="/games">Listado de juegos</a>
         <a href="/games/addForm">Añadir nuevo juego</a>
     </nav>
+
+    <h1>Lista de juegos</h1>
+    <section class="container">
+        <div th:each="game: ${myGames}">
+            <img th:src="${game.url}" alt="juego"/>
+            <p th:text="${game.description}"></p>
+            <p th:text="${game.author}"></p>
+            <button th:onclick="deleteGame( [[${meme.id}]] )">❌</button>
+        </div>
+    </section>
+
+    <script>
+        async function deleteMeme(id) {
+            await fetch('/memes/' + id, {method: 'DELETE'})
+
+            console.log('Meme borrado')
+            window.location.replace('/memes')
+        }
+    </script>
 
 </body>
 </html>
